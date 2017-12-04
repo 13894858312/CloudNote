@@ -203,7 +203,7 @@ __webpack_require__(10);
  */
 
 Vue.http.interceptors.push(function (request, next) {
-    request.headers.set('X-CSRF-TOKEN', Borgert.csrfToken);
+    request.headers.set('X-CSRF-TOKEN', Note.csrfToken);
 
     next();
 });
@@ -249,7 +249,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/vagrant/Code/borgert-cms/resources/assets/js/components/Example.vue"
+__vue_options__.__file = "/Code/Cloudnote/resources/assets/js/components/Example.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -325,7 +325,7 @@ $(document).ready(function () {
         height: 270,
         lang: 'pt-BR'
     });
-    
+
     // --------------------------------------------------------------------------------------
 
     // MetsiMenu
@@ -360,7 +360,7 @@ $(document).ready(function () {
     $('.datetimepicker').datetimepicker({
         step: 10
     });
-    
+
     // --------------------------------------------------------------------------------------
 
     // Open close right sidebar

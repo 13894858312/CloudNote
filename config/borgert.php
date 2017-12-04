@@ -2,15 +2,9 @@
 
 return [
 
-    /*
-    |--------------------------------------------------------------------------
-    | Config Borgert CMS
-    |--------------------------------------------------------------------------
-    */
-
-    'name' => 'Borgert CMS',
+    'name' => 'CloudNote',
     'laravel' => 'Laravel 5.5',
     'version' => '1.0.0',
-    'opensource' => 'https://github.com/odirleiborgert/borgert-cms',
+    'opensource' => 'https://github.com/13894858312/CloudNote',
 
 ];

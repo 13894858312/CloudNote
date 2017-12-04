@@ -1,18 +1,17 @@
 {
-  "name": "Borgert CMS",
-  "description": "CMS desenvolvido utilizando o Framework Laravel",
+  "name": "CloudNote",
+  "description": "云笔记",
   "main": "",
   "authors": [
-    "Odirlei Borgert <odirleiborgert@gmail.com>"
+    "Xue Wang <151250149@smail.nju.edu.com>"
   ],
   "license": "MIT",
   "keywords": [
-    "borgert",
-    "cms",
+    "note",
     "laravel",
     "admin"
   ],
-  "homepage": "https://github.com/odirleiborgert/borgert-cms",
+  "homepage": "https://github.com/13894858312/CloudNote",
   "private": true,
   "ignore": [
     "**/.*",

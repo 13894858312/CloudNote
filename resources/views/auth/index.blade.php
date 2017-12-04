@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>{{ config('borgert.name') }}</title>
+        <title>{{ config('note.name') }}</title>
 
         <link href="{!! asset('assets/components/bootstrap/dist/css/bootstrap.min.css') !!}" rel="stylesheet">
         <link href="{!! asset('assets/components/font-awesome/css/font-awesome.min.css') !!}" rel="stylesheet">
@@ -22,7 +22,7 @@
         <br>
 
         <div class="text-center">
-            <img src="{{ asset('assets/admin/img/borgert-logo.png') }}" width="250px">
+            <img src="{{ asset('assets/admin/img/note-logo.png') }}" width="250px">
         </div>
 
         <br>
@@ -31,7 +31,7 @@
 
         <hr>
         
-        <p class="m-t text-center"> <small>{{ config('borgert.name') }} {{ date('Y') }}</small> </p>
+        <p class="m-t text-center"> <small>{{ config('note.name') }} {{ date('Y') }}</small> </p>
 
         <!-- Mainly scripts -->
         <script src="{!! asset('assets/components/jquery/dist/jquery.min.js') !!}"></script>

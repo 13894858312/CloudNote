@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>404 | {{ config('borgert.name') }}</title>
+    <title>404 | {{ config('note.name') }}</title>
 
     <link href="{!! asset('assets/components/bootstrap/dist/css/bootstrap.min.css') !!}" rel="stylesheet">
     <link href="{!! asset('assets/components/font-awesome/css/font-awesome.min.css') !!}" rel="stylesheet">
@@ -31,8 +31,8 @@
     </div>
 
     <div class="footer">
-        <div class="pull-right"><strong>{{ config('borgert.version') }}</strong>.</div>
-        <div><strong>{{ config('borgert.name') }}</strong> &copy; {{ date('Y') }}</div>
+        <div class="pull-right"><strong>{{ config('note.version') }}</strong>.</div>
+        <div><strong>{{ config('note.name') }}</strong> &copy; {{ date('Y') }}</div>
     </div>
 
     <!-- Mainly scripts -->

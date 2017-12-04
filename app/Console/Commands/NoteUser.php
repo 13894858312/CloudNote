@@ -5,14 +5,14 @@ namespace App\Console\Commands;
 use App\User;
 use Illuminate\Console\Command;
 
-class BorgertUser extends Command
+class NoteUser extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'borgert:user';
+    protected $signature = 'note:user';
 
     /**
      * The console command description.

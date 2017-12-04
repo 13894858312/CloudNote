@@ -18,7 +18,7 @@ return [
 
     // Login
     'login' => [
-        'welcome' => 'Welcome to Borgert CMS',
+        'welcome' => 'Welcome to Note',
         'form' => [
             'email' => 'E-mail',
             'senha' => 'Password',
