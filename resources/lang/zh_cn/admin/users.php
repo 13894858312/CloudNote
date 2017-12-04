@@ -2,7 +2,7 @@
 
 return [
 
-    'module' => 'Usuarios',
+    'module' => '用户管理',
 
     'index' => [
         'title' => '用户列表 (:total)',

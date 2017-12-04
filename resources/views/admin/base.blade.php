@@ -8,22 +8,22 @@
         <title>@yield('title') | {{ config('note.name') }}</title>
 
         @section('stylesheet')
-        
+
             <!-- Bootstrap -->
             <link href="{!! asset('assets/components/bootstrap/dist/css/bootstrap.min.css') !!}" rel="stylesheet">
 
             <!-- Font Awesome Icons -->
             <link href="{!! asset('assets/components/font-awesome/css/font-awesome.min.css') !!}" rel="stylesheet">
-            
+
             <!-- Summernote -->
             <link href="{!! asset('assets/components/summernote/dist/summernote.css') !!}" rel="stylesheet">
-            
+
             <!-- Animate.css -->
             <link href="{!! asset('assets/components/animate.css/animate.min.css') !!}" rel="stylesheet">
 
             <!-- Bootstrap datetimepicker -->
             <link href="{!! asset('assets/components/datetimepicker/jquery.datetimepicker.css') !!}" rel="stylesheet">
-            
+
             <!-- Blueimp Jquery File Upload -->
             <link href="{!! asset('assets/components/blueimp-file-upload/css/jquery.fileupload.css') !!}" rel="stylesheet">
             <link href="{!! asset('assets/components/blueimp-file-upload/css/jquery.fileupload-ui.css') !!}" rel="stylesheet">
@@ -61,29 +61,12 @@
                         </li>
                         <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> <span class="nav-label">@lang('admin/dashboard.module')</span></a></li>
                         <li>
-                            <a href="#"><i class="fa fa-comments"></i> <span class="nav-label">@lang('admin/blog.module')</span> <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="{{ route('admin.blog.categorys.index') }}">@lang('admin/blog.submodule.categorys')</a></li>
-                                <li><a href="{{ route('admin.blog.posts.index') }}">@lang('admin/blog.submodule.posts')</a></li>
-                                <li><a href="{{ route('admin.blog.comments.index') }}">@lang('admin/blog.submodule.comments')</a></li>
-                            </ul>
-                        </li>
-                        <li>
                             <a href="#"><i class="fa fa-file-text"></i> <span class="nav-label">@lang('admin/pages.module')</span> <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li><a href="{{ route('admin.pages.categorys.index') }}">@lang('admin/pages.submodule.categorys')</a></li>
                                 <li><a href="{{ route('admin.pages.contents.index') }}">@lang('admin/pages.submodule.contents')</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-cube"></i> <span class="nav-label">@lang('admin/products.module')</span> <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="{{ route('admin.products.categorys.index') }}">@lang('admin/products.submodule.categorys')</a></li>
-                                <li><a href="{{ route('admin.products.contents.index') }}">@lang('admin/products.submodule.contents')</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="{{ route('admin.gallerys.index') }}"><i class="fa fa-photo"></i> <span class="nav-label">@lang('admin/gallerys.module')</span></a></li>
-                        <li><a href="{{ route('admin.mailbox.inbox') }}"><i class="fa fa-envelope"></i> <span class="nav-label">@lang('admin/mailbox.module')</span></a></li>
                         <li><a href="{{ route('admin.users.index') }}"><i class="fa fa-users"></i> <span class="nav-label">@lang('admin/users.module')</span></a></li>
                     </ul>
                 </div>
@@ -116,12 +99,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Footer -->
-                <div class="footer">
-                    <div class="pull-right"><a href="{{ config('note.opensource') }}" target="_blank"><u>Open Source</u> <i class="fa fa-github"></i></a> - <strong>{{ config('note.version') }}</strong></div>
-                    <div><strong>{{ config('note.name') }}</strong> - {{ date('Y') }}</div>
-                </div>
 
             </div>
         </div>
@@ -130,7 +107,7 @@
 
             <!-- App -->
             <script type="text/javascript" src="{!! asset('assets/admin/js/app.js') !!}"></script>
-            
+
             <!-- Mainly scripts -->
             <script type="text/javascript" src="{!! asset('assets/components/jquery/dist/jquery.min.js') !!}"></script>
 
@@ -139,7 +116,7 @@
 
             <!-- Bootstrap -->
             <script type="text/javascript" src="{!! asset('assets/components/bootstrap/dist/js/bootstrap.min.js') !!}"></script>
-            
+
             <!-- Menu (Scroll && Toogle ) -->
             <script type="text/javascript" src="{!! asset('assets/components/slimScroll/jquery.slimscroll.min.js') !!}"></script>
             <script type="text/javascript" src="{!! asset('assets/components/metisMenu/dist/metisMenu.min.js') !!}"></script>

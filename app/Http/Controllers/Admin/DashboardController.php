@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Admin\Mailbox;
 use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
@@ -14,14 +13,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-
-        // Mailbox
-        $mailbox = [
-            'inbox' => Mailbox::where('map', 'INBOX'),
-            'archive' => Mailbox::where('map', 'ARCHIVE'),
-            'trash' => Mailbox::where('map', 'TRASH'),
-        ];
-
-        return view('admin.dashboard.index', $mailbox);
+        return view('admin.dashboard.index');
     }
 }

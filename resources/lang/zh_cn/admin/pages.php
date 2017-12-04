@@ -2,7 +2,7 @@
 
 return [
 
-    'module' => '笔记',
+    'module' => '我的笔记',
 
     'submodule' => [
         'categorys' => '笔记本',

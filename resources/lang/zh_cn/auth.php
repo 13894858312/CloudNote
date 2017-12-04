@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => '无符合纪录',
+    'failed' => '无符合记录',
     'throttle' => '登录过于频繁，请 :seconds 秒后重试',
 
     // Login
