@@ -3,7 +3,7 @@
 @section('title', trans('admin/profile.module') , @parent )
 
 @section('profile')
-    
+
     <div class="row m-b-lg m-t-lg">
         <div class="col-md-6">
             <div class="profile-info text-center">
@@ -14,9 +14,9 @@
                 <h4>{{ Auth::user()->email }}</h4>
             </div>
         </div>
-        
+
         <div class="col-md-6">
-            
+
             <form action="{{ route('admin.profile.update') }}" method="post" class="ibox-content">
 
                 <h3>@lang('admin/profile.profile.password.title')</h3>
@@ -34,8 +34,7 @@
                     <label class="control-label">@lang('admin/_globals.forms.language'):</label>
                     <select class='form-control' name="lang">
                         <option value="en" @if($user->lang == "en") selected @endif >English</option>
-                        <option value="pt" @if($user->lang == "pt") selected @endif >Português</option>
-                        <option value="es" @if($user->lang == "es") selected @endif >Español</option>
+                        <option value="zh_cn" @if($user->lang == "zh_cn") selected @endif >Chinese</option>
                     </select>
                 </div>
                 <div class="form-group">

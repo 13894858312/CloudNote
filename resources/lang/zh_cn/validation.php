@@ -61,7 +61,7 @@ return [
     'numeric'              => ':attribute 必须为数字',
     'present'              => ':attribute 必须存在',
     'regex'                => ':attribute 格式非法',
-    'required'             => '请输入 :attribute',
+    'required'             => '请输入密码',
     'required_if'          => ':attribute 必须存在，如果 :other 值为 :value.',
     'required_unless'      => ':attribute 必须存在，除非 :other 在 :values 范围内',
     'required_with'        => ':attribute 必须存在，如果 :values 存在',

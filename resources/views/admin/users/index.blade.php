@@ -9,7 +9,7 @@
 @section('users')
 
     @section('subtitle', trans('admin/users.index.title', ['total' => $users->total()] ))
-    
+
     <div class="ibox">
         <div class="ibox-content">
             @if ($users->total() > 0)
@@ -23,8 +23,6 @@
                                     <th>@sortablelink('created_at', trans('admin/_globals.tables.created_at'))</th>
                                     <th>@sortablelink('name', trans('admin/_globals.tables.name'))</th>
                                     <th>@sortablelink('email', trans('admin/_globals.tables.email'))</th>
-                                    <th>@sortablelink('status', trans('admin/_globals.tables.status'))</th>
-                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -34,13 +32,6 @@
                                         <td>{{ $user->created_at->diffForHumans() }}</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
-                                        <td>
-                                            @if ($user->status === 1)
-                                                <span class="badge badge-success">@lang('admin/_globals.tables.active')</span>
-                                            @elseif ($user->status === 0)
-                                                <span class="badge">@lang('admin/_globals.tables.inactive')</span>
-                                            @endif
-                                        </td>
                                         <td class="text-right">
                                             <a href="{{ route('admin.users.edit',$user->id) }}" class="btn btn-primary">@lang('admin/_globals.buttons.edit')</a>
                                         </td>

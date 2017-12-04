@@ -121,7 +121,6 @@ class UserControllerTest extends \TestCase
             'name' => 'John Doe',
             'email' => 'john@gmail.com',
             'password' => '1234567',
-            'status' => 1,
         ];
         $this->users->shouldReceive('find')
             ->once()

@@ -70,7 +70,6 @@ class ContentsController extends Controller
         ]);
 
         $contentDetails = $request->all();
-        $contentDetails['status'] = isset($request->status) ? 1 : 0;
         $contentDetails['slug'] = str_slug($request->title);
         $this->contents->create($contentDetails);
 
@@ -113,7 +112,6 @@ class ContentsController extends Controller
         $content = $this->contents->find($id);
 
         $contentDetails = $request->all();
-        $contentDetails['status'] = isset($request->status) ? 1 : 0;
         $contentDetails['slug'] = str_slug($request->title);
         $content->update($contentDetails);
 

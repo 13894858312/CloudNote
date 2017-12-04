@@ -40,7 +40,7 @@ return [
     'gravatar' => [
         'title' => 'Gravatar',
         'description' => 'Gravatar 是个人全球统一标识，创建Gravatar有利于让更多网络上的发现你。',
-        'button' => 'Crear tu gavatar',
+        'button' => '创建Gravatar',
     ],
 
 ];

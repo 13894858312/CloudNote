@@ -82,7 +82,6 @@
                         <ul class="nav navbar-top-links navbar-right">
                             <li><span class="m-r-sm text-muted welcome-message">@lang('admin/_globals.hello') <strong><a href="{{ route('admin.profile.profile') }}" class="no-padding">
                                 {{ Auth::user()->name }}</a></strong></span>
-                            <img src="{{ Gravatar::src(Auth::user()->email, 60) }}" class="img-circle" height="32"></li>
                             <li><a href="{{ route('auth.logout') }}"><i class="fa fa-sign-out"></i> @lang('admin/_globals.exit')</a></li>
                         </ul>
                     </nav>
