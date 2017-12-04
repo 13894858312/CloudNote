@@ -46,6 +46,23 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
     // Dashboard
     Route::get('/', ['as' => 'index', 'uses' => 'Admin\DashboardController@index']);
 
+    // Mobule: BLOG
+
+    Route::group(['prefix' => 'blog', 'as' => 'blog.'], function () {
+
+        // Categorys
+        Route::resource('categorys', 'Admin\Blog\CategorysController');
+        Route::post('categorys/update/{id}', 'Admin\Blog\CategorysController@update')->name('categorys.update');
+        Route::post('categorys/destroy', 'Admin\Blog\CategorysController@destroy')->name('categorys.destroy');
+
+        // Posts
+        Route::resource('posts', 'Admin\Blog\PostsController');
+        Route::post('posts/update/{id}', 'Admin\Blog\PostsController@update')->name('posts.update');
+        Route::post('posts/destroy', 'Admin\Blog\PostsController@destroy')->name('posts.destroy');
+        Route::any('posts/upload/{id?}', 'Admin\Blog\PostsController@upload')->name('posts.upload');
+
+    });
+
     // ---------------------------------------------------------------------------------------------
 
     // Mobule: PAGES
