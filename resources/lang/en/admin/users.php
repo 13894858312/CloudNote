@@ -39,7 +39,7 @@ return [
 
     'gravatar' => [
         'title' => 'Gravatar',
-        'description' => 'Your Gravatar is an image that follows you from site to site appearing beside your name when you do things like comment or post on a blog. Avatars help identify your posts on blogs and web forums, so why not on any site?',
+        'description' => 'Your Gravatar is an image that follows you from site to site appearing beside your name when you do things like comment or post on a note. Avatars help identify your posts on notes and web forums, so why not on any site?',
         'button' => 'Create your gravatar',
     ],
 

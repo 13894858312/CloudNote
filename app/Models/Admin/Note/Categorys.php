@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Admin\Blog;
+namespace App\Models\Admin\Note;
 
 use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
@@ -10,19 +10,17 @@ class Categorys extends Model
 {
     use SoftDeletes, Sortable;
 
-    protected $table = 'blog_category';
+    protected $table = 'note_category';
 
     protected $fillable = [
         'title',
         'order',
-        'status',
     ];
 
     protected $sortable = [
         'id',
         'title',
         'order',
-        'status',
         'created_at',
     ];
 }

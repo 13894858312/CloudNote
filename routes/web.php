@@ -48,18 +48,18 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
 
     // Mobule: BLOG
 
-    Route::group(['prefix' => 'blog', 'as' => 'blog.'], function () {
+    Route::group(['prefix' => 'note', 'as' => 'note.'], function () {
 
         // Categorys
-        Route::resource('categorys', 'Admin\Blog\CategorysController');
-        Route::post('categorys/update/{id}', 'Admin\Blog\CategorysController@update')->name('categorys.update');
-        Route::post('categorys/destroy', 'Admin\Blog\CategorysController@destroy')->name('categorys.destroy');
+        Route::resource('categorys', 'Admin\Note\CategorysController');
+        Route::post('categorys/update/{id}', 'Admin\Note\CategorysController@update')->name('categorys.update');
+        Route::post('categorys/destroy', 'Admin\Note\CategorysController@destroy')->name('categorys.destroy');
 
         // Posts
-        Route::resource('posts', 'Admin\Blog\PostsController');
-        Route::post('posts/update/{id}', 'Admin\Blog\PostsController@update')->name('posts.update');
-        Route::post('posts/destroy', 'Admin\Blog\PostsController@destroy')->name('posts.destroy');
-        Route::any('posts/upload/{id?}', 'Admin\Blog\PostsController@upload')->name('posts.upload');
+        Route::resource('posts', 'Admin\Note\PostsController');
+        Route::post('posts/update/{id}', 'Admin\Note\PostsController@update')->name('posts.update');
+        Route::post('posts/destroy', 'Admin\Note\PostsController@destroy')->name('posts.destroy');
+        Route::any('posts/upload/{id?}', 'Admin\Note\PostsController@upload')->name('posts.upload');
 
     });
 

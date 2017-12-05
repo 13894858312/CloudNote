@@ -60,7 +60,6 @@ class UserControllerTest extends \TestCase
             'name' => 'John Doe',
             'email' => 'john@gmail.com',
             'password' => '1234567',
-            'status' => 1,
         ];
         $hashedPassword = '1234567';
         $request->shouldReceive('all')
@@ -77,7 +76,6 @@ class UserControllerTest extends \TestCase
             ->andReturn($hashedPassword);
         $request->shouldReceive('offsetGet')
             ->once()
-            ->with('status')
             ->andReturn(0);
         $this->users->shouldReceive('create')
             ->once()
@@ -141,7 +139,6 @@ class UserControllerTest extends \TestCase
             ->andReturn($hashedPassword);
         $request->shouldReceive('offsetGet')
             ->once()
-            ->with('status')
             ->andReturn(0);
         $user->shouldReceive('update')
             ->once()

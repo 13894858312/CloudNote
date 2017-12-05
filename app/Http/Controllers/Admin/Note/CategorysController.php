@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Pages;
+namespace App\Http\Controllers\Admin\Note;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Pages\Categorys;
+use App\Models\Admin\Note\Categorys;
 
 class CategorysController extends Controller
 {
@@ -31,7 +31,7 @@ class CategorysController extends Controller
     {
         $categorys = $this->categorys->sortable(['created_at' => 'desc'])->paginate(10);
 
-        return view('admin.pages.categorys.index', ['categorys' => $categorys]);
+        return view('admin.note.categorys.index', ['categorys' => $categorys]);
     }
 
     /**
@@ -41,7 +41,7 @@ class CategorysController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.categorys.create');
+        return view('admin.note.categorys.create');
     }
 
     /**
@@ -57,13 +57,12 @@ class CategorysController extends Controller
             'title' => 'required',
         ]);
 
-        $categoryDetail = $request->all();
-        $categoryDetail['status'] = isset($request->status) ? 1 : 0;
-        $this->categorys->create($categoryDetail);
+        $categoryDetails = $request->all();
+        $this->categorys->create($categoryDetails);
 
-        \Session::flash('success', trans('admin/pages.categorys.store.messages.success'));
+        \Session::flash('success', trans('admin/note.categorys.store.messages.success'));
 
-        return redirect()->route('admin.pages.categorys.index')->withInput();
+        return redirect()->route('admin.note.categorys.index')->withInput();
     }
 
     /**
@@ -75,9 +74,9 @@ class CategorysController extends Controller
      */
     public function edit($id)
     {
-        $category = Categorys::find($id);
+        $category = $this->categorys->find($id);
 
-        return view('admin.pages.categorys.edit', ['category' => $category]);
+        return view('admin.note.categorys.edit', ['category' => $category]);
     }
 
     /**
@@ -88,21 +87,20 @@ class CategorysController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $this->validate($request, [
             'title' => 'required',
         ]);
 
-        $category = $this->categorys->find($id);
+        $category = $this->categorys->find($request->id);
 
-        $categoryDetail = $request->all();
-        $categoryDetail['status'] = isset($request->status) ? 1 : 0;
-        $category->update($categoryDetail);
+        $categoryDetails = $request->all();
+        $category->update($categoryDetails);
 
-        \Session::flash('success', trans('admin/pages.categorys.update.messages.success'));
+        \Session::flash('success', trans('admin/note.categorys.update.messages.success'));
 
-        return redirect()->route('admin.pages.categorys.index')->withInput();
+        return redirect()->route('admin.note.categorys.index')->withInput();
     }
 
     /**
@@ -113,14 +111,14 @@ class CategorysController extends Controller
     public function destroy(Request $request)
     {
         if (is_null($request->categorys)) {
-            \Session::flash('info', trans('admin/pages.categorys.destroy.messages.info'));
+            \Session::flash('info', trans('admin/note.categorys.destroy.messages.info'));
 
-            return redirect()->route('admin.pages.categorys.index');
+            return redirect()->route('admin.note.categorys.index');
         }
 
-        Categorys::destroy($request->categorys);
-        \Session::flash('success', trans('admin/pages.categorys.destroy.messages.success'));
+        $this->categorys->destroy($request->categorys);
+        \Session::flash('success', trans('admin/note.categorys.destroy.messages.success'));
 
-        return redirect()->route('admin.pages.categorys.index');
+        return redirect()->route('admin.note.categorys.index');
     }
 }

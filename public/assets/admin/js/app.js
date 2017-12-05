@@ -7918,7 +7918,7 @@ jQuery.extend( {
 
 				// elem.tabIndex doesn't always return the
 				// correct value when it hasn't been explicitly set
-				// http://fluidproject.org/blog/2008/01/09/getting-setting-and-removing-tabindex-values-with-javascript/
+				// http://fluidproject.org/note/2008/01/09/getting-setting-and-removing-tabindex-values-with-javascript/
 				// Use proper attribute retrieval(#12072)
 				var tabindex = jQuery.find.attr( elem, "tabindex" );
 
@@ -10713,7 +10713,7 @@ return jQuery;
     rsEmoji
   ].join('|'), 'g');
 
-  /** Used to detect strings with [zero-width joiners or code points from the astral planes](http://eev.ee/blog/2015/09/12/dark-corners-of-unicode/). */
+  /** Used to detect strings with [zero-width joiners or code points from the astral planes](http://eev.ee/note/2015/09/12/dark-corners-of-unicode/). */
   var reHasUnicode = RegExp('[' + rsZWJ + rsAstralRange  + rsComboRange + rsVarRange + ']');
 
   /** Used to detect strings that need a more robust regexp to match words. */
@@ -25187,7 +25187,7 @@ return jQuery;
      */
     function template(string, options, guard) {
       // Based on John Resig's `tmpl` implementation
-      // (http://ejohn.org/blog/javascript-micro-templating/)
+      // (http://ejohn.org/note/javascript-micro-templating/)
       // and Laura Doktorova's doT.js (https://github.com/olado/doT).
       var settings = lodash.templateSettings;
 
@@ -29564,7 +29564,7 @@ function toObject (arr) {
 /**
  * Perform no operation.
  * Stubbing args to make Flow happy without leaving useless transpiled code
- * with ...rest (https://flow.org/blog/2017/05/07/Strict-Function-Call-Arity/)
+ * with ...rest (https://flow.org/note/2017/05/07/Strict-Function-Call-Arity/)
  */
 function noop (a, b, c) {}
 

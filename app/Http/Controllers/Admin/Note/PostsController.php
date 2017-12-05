@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Blog;
+namespace App\Http\Controllers\Admin\Note;
 
 use Carbon\Carbon;
 use App\Libraries\Upload;
 use Illuminate\Http\Request;
-use App\Models\Admin\Blog\Posts;
+use App\Models\Admin\Note\Posts;
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Blog\Categorys;
+use App\Models\Admin\Note\Categorys;
 
 class PostsController extends Controller
 {
-    const UPLOAD_PATH = 'blog/posts/';
-    const UPLOAD_ROUTE = 'admin.blog.posts.upload';
+    const UPLOAD_PATH = 'note/posts/';
+    const UPLOAD_ROUTE = 'admin.note.posts.upload';
 
     /**
      * @var Posts
@@ -41,7 +41,7 @@ class PostsController extends Controller
     {
         $posts = $this->posts->sortable(['created_at' => 'desc'])->whereHas('category')->paginate(10);
 
-        return view('admin.blog.posts.index', ['posts' => $posts]);
+        return view('admin.note.posts.index', ['posts' => $posts]);
     }
 
     /**
@@ -53,7 +53,7 @@ class PostsController extends Controller
     {
         $categorys = $this->categorys->all();
 
-        return view('admin.blog.posts.create', ['categorys' => $categorys]);
+        return view('admin.note.posts.create', ['categorys' => $categorys]);
     }
 
     /**
@@ -66,15 +66,12 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'publish_at' => 'required',
             'category_id' => 'required|integer',
             'title' => 'required',
             'description' => 'required',
         ]);
 
         $postDetails = $request->all();
-        $postDetails['publish_at'] = new Carbon($request->publish_at);
-        $postDetails['status'] = isset($request->status) ? 1 : 0;
         $post = $this->posts->create($postDetails);
 
         $user = $request->user();
@@ -85,9 +82,9 @@ class PostsController extends Controller
             \Storage::disk('uploads')->move($path_from, $path_to);
         }
 
-        \Session::flash('success', trans('admin/blog.posts.store.messages.success'));
+        \Session::flash('success', trans('admin/note.posts.store.messages.success'));
 
-        return redirect()->route('admin.blog.posts.index')->withInput();
+        return redirect()->route('admin.note.posts.index')->withInput();
     }
 
     /**
@@ -102,7 +99,7 @@ class PostsController extends Controller
         $categorys = $this->categorys->all();
         $post = $this->posts->find($id);
 
-        return view('admin.blog.posts.edit', ['categorys' => $categorys, 'post' => $post]);
+        return view('admin.note.posts.edit', ['categorys' => $categorys, 'post' => $post]);
     }
 
     /**
@@ -116,7 +113,6 @@ class PostsController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
-            'publish_at' => 'required',
             'category_id' => 'required|integer',
             'title' => 'required',
             'description' => 'required',
@@ -125,13 +121,11 @@ class PostsController extends Controller
         $post = $this->posts->find($request->id);
 
         $postDetails = $request->all();
-        $postDetails['publish_at'] = new Carbon($request->publish_at);
-        $postDetails['status'] = isset($request->status) ? 1 : 0;
         $post->update($postDetails);
 
-        \Session::flash('success', trans('admin/blog.posts.update.messages.success'));
+        \Session::flash('success', trans('admin/note.posts.update.messages.success'));
 
-        return redirect()->route('admin.blog.posts.index')->withInput();
+        return redirect()->route('admin.note.posts.index')->withInput();
     }
 
     /**
@@ -142,13 +136,13 @@ class PostsController extends Controller
     public function destroy(Request $request)
     {
         if (is_null($request->posts)) {
-            \Session::flash('info', trans('admin/blog.posts.destroy.messages.info'));
+            \Session::flash('info', trans('admin/note.posts.destroy.messages.info'));
 
-            return redirect()->route('admin.blog.posts.index');
+            return redirect()->route('admin.note.posts.index');
         }
 
         $this->posts->destroy($request->posts);
-        \Session::flash('success', trans('admin/blog.posts.destroy.messages.success'));
+        \Session::flash('success', trans('admin/note.posts.destroy.messages.success'));
 
         // Precisamos remover as imagens desse ID também
         // tem que ser um foreach porque é um array de galerias
@@ -162,7 +156,7 @@ class PostsController extends Controller
             }
         }
 
-        return redirect()->route('admin.blog.posts.index');
+        return redirect()->route('admin.note.posts.index');
     }
 
     /**

@@ -29,7 +29,7 @@ return [
     'tables' => [
         'created_at' => '创建时间',
         'title' => '标题',
-        'category' => '类别',
+        'category' => '笔记本',
         'contents' => '内容',
         'comments' => '评价',
         'name' => '用户名',
@@ -52,7 +52,7 @@ return [
             'seo' => 'SEO',
         ],
         'title' => '标题',
-        'category' => '类别',
+        'category' => '笔记本',
         'content' => 'Contenido',
         'description' => '描述',
         'keywords' => '关键字',

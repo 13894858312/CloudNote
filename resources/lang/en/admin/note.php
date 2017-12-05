@@ -2,7 +2,7 @@
 
 return [
 
-    'module' => 'Blog',
+    'module' => 'Note',
 
     'submodule' => [
         'categorys' => 'Categories',
@@ -94,7 +94,7 @@ return [
 
         'edit' => [
             'title' => 'Edit post',
-            'posted' => '<strong>:name</strong> put message <strong>:title</strong> in blog.',
+            'posted' => '<strong>:name</strong> put message <strong>:title</strong> in note.',
         ],
 
         'store' => [

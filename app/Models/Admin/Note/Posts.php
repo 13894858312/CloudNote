@@ -1,42 +1,35 @@
 <?php
 
-namespace App\Models\Admin\Pages;
+namespace App\Models\Admin\Note;
 
 use App\Traits\SeoTrait;
+use App\Traits\ImageTrait;
 use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Contents extends Model
+class Posts extends Model
 {
-    use SoftDeletes, Sortable, SeoTrait;
+    use SoftDeletes, Sortable, SeoTrait, ImageTrait;
 
-    protected $table = 'pages_contents';
+    protected $table = 'note_posts';
 
     protected $fillable = [
+        'category_id',
         'title',
         'description',
-        'order',
-        'category_id',
-        'status',
-        'seo_title',
-        'seo_description',
-        'seo_keywords',
-        'slug',
     ];
 
     protected $sortable = [
         'id',
+        'category_id',
         'title',
-        'order',
-        'status',
         'created_at',
     ];
 
     protected $traits = [
-        'seo' => [
-            'title' => 'title',
-            'description' => 'description',
+        'image' => [
+            'path' => 'note/posts/',
         ],
     ];
 
@@ -44,7 +37,7 @@ class Contents extends Model
 
     public function category()
     {
-        return $this->belongsTo('App\Models\Admin\Pages\Categorys');
+        return $this->belongsTo('App\Models\Admin\Note\Categorys');
     }
 
     // -------------------------------------------------------------------------------

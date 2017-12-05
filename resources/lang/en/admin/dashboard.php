@@ -4,8 +4,8 @@ return [
 
     'module' => 'Dashboard',
 
-    'blog' => [
-        'title' => 'Blog',
+    'note' => [
+        'title' => 'Note',
         'description' => 'Manage your posts, comments, and create new categories.',
     ],
     'pages' => [

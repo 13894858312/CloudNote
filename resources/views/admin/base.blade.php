@@ -56,22 +56,15 @@
                                 <img src="{{ asset('assets/admin/img/note.png') }}">
                             </div>
                             <div class="logo-element">
-                                <i class="fa fa-diamond"></i>
+                                <i class="fa fa-comments"></i>
                             </div>
                         </li>
                         <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> <span class="nav-label">@lang('admin/dashboard.module')</span></a></li>
                         <li>
-                            <a href="#"><i class="fa fa-comments"></i> <span class="nav-label">@lang('admin/blog.module')</span> <span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-file-text"></i> <span class="nav-label">@lang('admin/note.module')</span> <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li><a href="{{ route('admin.blog.categorys.index') }}">@lang('admin/blog.submodule.categorys')</a></li>
-                                <li><a href="{{ route('admin.blog.posts.index') }}">@lang('admin/blog.submodule.posts')</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-file-text"></i> <span class="nav-label">@lang('admin/pages.module')</span> <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="{{ route('admin.pages.categorys.index') }}">@lang('admin/pages.submodule.categorys')</a></li>
-                                <li><a href="{{ route('admin.pages.contents.index') }}">@lang('admin/pages.submodule.contents')</a></li>
+                                <li><a href="{{ route('admin.note.categorys.index') }}">@lang('admin/note.submodule.categorys')</a></li>
+                                <li><a href="{{ route('admin.note.posts.index') }}">@lang('admin/note.submodule.posts')</a></li>
                             </ul>
                         </li>
                         <li><a href="{{ route('admin.users.index') }}"><i class="fa fa-users"></i> <span class="nav-label">@lang('admin/users.module')</span></a></li>
