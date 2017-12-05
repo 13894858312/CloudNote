@@ -16,12 +16,12 @@ return [
     '404' => [
         'title'                 => '页面未找到',
         'description'           => '对不起，未找到您访问的界面。',
-        'link'                  => '返回Dashboard',
+        'link'                  => '返回主页',
     ],
     '503' => [
         'title'                 => '服务不可用',
         'description'           => '对不起，该服务暂时不能访问。',
-        'link'                  => '返回Dashboard',
+        'link'                  => '返回主页',
     ],
 
 ];

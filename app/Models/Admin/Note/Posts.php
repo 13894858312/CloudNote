@@ -2,7 +2,6 @@
 
 namespace App\Models\Admin\Note;
 
-use App\Traits\SeoTrait;
 use App\Traits\ImageTrait;
 use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
@@ -10,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Posts extends Model
 {
-    use SoftDeletes, Sortable, SeoTrait, ImageTrait;
+    use SoftDeletes, Sortable, ImageTrait;
 
     protected $table = 'note_posts';
 

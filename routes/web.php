@@ -27,14 +27,16 @@ Route::get('', function () {
 // Mobule: AUTH
 
 Route::group(['as' => 'auth.'], function () {
+    Route::get('signup','Auth\RegisterController@signup')->name('signup');
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', ['as' => 'login', 'uses' => 'Auth\LoginController@login']);
+    Route::post('register', 'Auth\RegisterController@register')->name('register');
     Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\LogoutController@logout']);
 
     Route::get('password/email', ['as' => 'password.forgot', 'uses' => 'Auth\ForgotPasswordController@showLinkRequestForm']);
     Route::post('password/email', ['as' => 'password.send', 'uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail']);
-    Route::get('password/reset/{token?}', ['as' => 'password.reset', 'uses' => 'Auth\ResetPasswordController@showResetForm']);
-    Route::post('password/reset', ['as' => 'password.reset', 'uses' => 'Auth\ResetPasswordController@reset']);
+    Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('reset');
+    Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('update');
 });
 
 // ---------------------------------------------------------------------------------------------
@@ -44,7 +46,7 @@ Route::group(['as' => 'auth.'], function () {
 Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function () {
 
     // Dashboard
-    Route::get('/', ['as' => 'index', 'uses' => 'Admin\DashboardController@index']);
+    Route::get('/', ['as' => 'index', 'uses' => 'Admin\Users\UsersController@index']);
 
     // Mobule: BLOG
 

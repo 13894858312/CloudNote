@@ -60,6 +60,7 @@ class UsersController extends Controller
 
         $userDetails = $request->all();
         $userDetails['password'] = \Hash::make($request['password']);
+        $userDetails['is_admin'] = 0;
         $this->users->create($userDetails);
 
         \Session::flash('success', trans('admin/users.store.messages.success'));
@@ -103,6 +104,7 @@ class UsersController extends Controller
         if ($request['password']) {
             $userDetails['password'] = \Hash::make($request['password']);
         }
+        $userDetails['is_admin'] = 0;
         $user->update($userDetails);
 
         \Session::flash('success', trans('admin/users.update.messages.success'));

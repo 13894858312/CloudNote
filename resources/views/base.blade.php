@@ -47,9 +47,13 @@
                 font-size: 12px;
                 text-transform: uppercase;
             }
+            #background {
+                background-image:url('assets/admin/img/background.png');
+                background-size: cover;
+            }
         </style>
     </head>
-    <body>
+    <body style="background-image:url('assets/admin/img/background.png');background-size:cover;">
         <div class="container">
             <div class="content">
                 <img src="{{ asset('assets/admin/img/note-logo.png') }}" width="250">

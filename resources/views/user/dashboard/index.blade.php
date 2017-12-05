@@ -1,6 +1,6 @@
-@extends('admin.base')
+@extends('user.base')
 
-@section('title', trans('admin/dashboard.module'), @parent)
+@section('title', trans('user/dashboard.module'), @parent)
 
 @section('content')
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Note;
+namespace App\Http\Controllers\User\Note;
 
 use Carbon\Carbon;
 use App\Libraries\Upload;
@@ -12,7 +12,7 @@ use App\Models\Admin\Note\Categorys;
 class PostsController extends Controller
 {
     const UPLOAD_PATH = 'note/posts/';
-    const UPLOAD_ROUTE = 'admin.note.posts.upload';
+    const UPLOAD_ROUTE = 'user.note.posts.upload';
 
     /**
      * @var Posts
@@ -41,7 +41,7 @@ class PostsController extends Controller
     {
         $posts = $this->posts->sortable(['created_at' => 'desc'])->whereHas('category')->paginate(10);
 
-        return view('admin.note.posts.index', ['posts' => $posts]);
+        return view('user.note.posts.index', ['posts' => $posts]);
     }
 
     /**
@@ -53,7 +53,7 @@ class PostsController extends Controller
     {
         $categorys = $this->categorys->all();
 
-        return view('admin.note.posts.create', ['categorys' => $categorys]);
+        return view('user.note.posts.create', ['categorys' => $categorys]);
     }
 
     /**
@@ -82,9 +82,9 @@ class PostsController extends Controller
             \Storage::disk('uploads')->move($path_from, $path_to);
         }
 
-        \Session::flash('success', trans('admin/note.posts.store.messages.success'));
+        \Session::flash('success', trans('user/note.posts.store.messages.success'));
 
-        return redirect()->route('admin.note.posts.index')->withInput();
+        return redirect()->route('user.note.posts.index')->withInput();
     }
 
     /**
@@ -99,7 +99,7 @@ class PostsController extends Controller
         $categorys = $this->categorys->all();
         $post = $this->posts->find($id);
 
-        return view('admin.note.posts.edit', ['categorys' => $categorys, 'post' => $post]);
+        return view('user.note.posts.edit', ['categorys' => $categorys, 'post' => $post]);
     }
 
     /**
@@ -123,9 +123,9 @@ class PostsController extends Controller
         $postDetails = $request->all();
         $post->update($postDetails);
 
-        \Session::flash('success', trans('admin/note.posts.update.messages.success'));
+        \Session::flash('success', trans('user/note.posts.update.messages.success'));
 
-        return redirect()->route('admin.note.posts.index')->withInput();
+        return redirect()->route('user.note.posts.index')->withInput();
     }
 
     /**
@@ -136,13 +136,13 @@ class PostsController extends Controller
     public function destroy(Request $request)
     {
         if (is_null($request->posts)) {
-            \Session::flash('info', trans('admin/note.posts.destroy.messages.info'));
+            \Session::flash('info', trans('user/note.posts.destroy.messages.info'));
 
-            return redirect()->route('admin.note.posts.index');
+            return redirect()->route('user.note.posts.index');
         }
 
         $this->posts->destroy($request->posts);
-        \Session::flash('success', trans('admin/note.posts.destroy.messages.success'));
+        \Session::flash('success', trans('user/note.posts.destroy.messages.success'));
 
         // Precisamos remover as imagens desse ID também
         // tem que ser um foreach porque é um array de galerias
@@ -156,7 +156,7 @@ class PostsController extends Controller
             }
         }
 
-        return redirect()->route('admin.note.posts.index');
+        return redirect()->route('user.note.posts.index');
     }
 
     /**

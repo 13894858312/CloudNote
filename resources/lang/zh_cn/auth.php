@@ -20,14 +20,17 @@ return [
     'login' => [
         'welcome' => '欢迎',
         'form' => [
+            'name' => '用户名',
             'email' => '电子邮箱',
             'senha' => '密码',
-            'button' => '登录',
+            'login_button' => '登录',
+            'repeat' => '确认密码',
+            'signup_button' => '注册',
         ],
         'messages' => [
             'error' => '用户名或密码非法！',
         ],
-        'forgot' => '忘记密码？',
+        'forgot' => '忘记密码',
     ],
 
     // Forget Password

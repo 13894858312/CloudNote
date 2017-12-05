@@ -7,12 +7,12 @@
 
         <h3>@lang('auth.reset.title')</h3>
 
-        <form class="m-t" role="form" method="POST" action="{{ route('auth.password.reset') }}">
-            
+        <form class="m-t" role="form" method="POST" action="{{ route('auth.update') }}">
+
             {{ csrf_field() }}
 
             <input type="hidden" name="token" value="{{ $token }}">
-            
+
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                 <input type="email" class="form-control" name="email" value="{{ $email or old('email') }}" placeholder="@lang('auth.reset.form.email')">
                 @if ($errors->has('email'))
