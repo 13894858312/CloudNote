@@ -1,4 +1,4 @@
-@extends('admin.note.base')
+@extends('user.note.base')
 
 @section('title',  trans('admin/note.posts.edit.title'), @parent)
 
@@ -13,7 +13,7 @@
 @show
 
 @section('actions')
-    <a href="{{ route('admin.note.posts.index') }}" class="btn btn-default"><i class="fa fa-angle-left"></i> @lang('admin/_globals.buttons.back')</a>
+    <a href="{{ route('user.note.posts.index') }}" class="btn btn-default"><i class="fa fa-angle-left"></i> @lang('admin/_globals.buttons.back')</a>
 @endsection
 
 @section('note')
@@ -27,7 +27,7 @@
             <li><a data-toggle="tab" href="#tab-images"> @lang('admin/_globals.forms.nav.images')</a></li>
         </ul>
 
-        <form action="{{ route('admin.note.posts.update', $post->id) }}" class="fileupload" method="post" enctype="multipart/form-data">
+        <form action="{{ route('user.note.posts.update', $post->id) }}" class="fileupload" method="post" enctype="multipart/form-data">
             <div class="tab-content">
 
                 <div id="tab-contents" class="tab-pane active">
@@ -105,7 +105,7 @@
             autoUpload: true,
             acceptFileTypes: /(\.|\/)(gif|jpe?g|png|bmp)$/i,
             maxFileSize: 10240000, // 10 MB
-            url: '{{ route('admin.note.posts.upload',$post->id) }}' ,
+            url: '{{ route('user.note.posts.upload',$post->id) }}' ,
         });
 
          // Load existing files:

@@ -3,7 +3,7 @@
 @section('title', trans('admin/users.edit.title'), @parent)
 
 @section('actions')
-	<a href="{{ route('admin.users.index') }}" class="btn btn-default"><i class="fa fa-angle-left"></i> @lang('admin/_globals.buttons.back')</a>
+	<a href="{{ route('manage.index') }}" class="btn btn-default"><i class="fa fa-angle-left"></i> @lang('admin/_globals.buttons.back')</a>
 @endsection
 
 @section('users')
@@ -11,7 +11,7 @@
     @section('subtitle', trans('admin/users.edit.title'))
 
     <div class="tabs-container">
-        <form action="{{ route('admin.users.update', $user->id) }}" method="post">
+        <form action="{{ route('manage.update', $user->id) }}" method="post">
             <div class="tab-content">
                 <div id="tab-contents" class="tab-pane active">
                     <div class="panel-body">

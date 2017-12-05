@@ -2,7 +2,7 @@
 
 return [
 
-    'module' => '简介',
+    'module' => '个人资料',
 
     'profile' => [
 

@@ -21,6 +21,16 @@ class UsersController extends Controller
         $this->users = $users;
     }
 
+    public function testadmin(Request $request)
+    {
+          $user = $request->user();
+          if($user->is_admin == 1){
+              return redirect()->route('manage.index');
+          }else {
+              return redirect()->route('user.dashboard');
+          }
+    }
+
     /**
      * Display a listing of the resource.
      *

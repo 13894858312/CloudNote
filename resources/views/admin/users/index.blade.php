@@ -3,7 +3,7 @@
 @section('title', trans('admin/users.index.title', ['total' => $users->total()]), @parent)
 
 @section('actions')
-	<a href="{{ route('admin.users.create') }}" class="btn dim btn-primary"><i class="fa fa-plus"></i> @lang('admin/_globals.buttons.create')</a>
+	<a href="{{ route('manage.create') }}" class="btn dim btn-primary"><i class="fa fa-plus"></i> @lang('admin/_globals.buttons.create')</a>
 @endsection
 
 @section('users')
@@ -13,7 +13,7 @@
     <div class="ibox">
         <div class="ibox-content">
             @if ($users->total() > 0)
-                <form action="{{ route('admin.users.destroy') }}" method="post">
+                <form action="{{ route('manage.destroy') }}" method="post">
                     {{ csrf_field() }}
                     <div class="table-responsive">
                         <table class="table table-striped table-align-middle">
@@ -33,7 +33,7 @@
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td class="text-right">
-                                            <a href="{{ route('admin.users.edit',$user->id) }}" class="btn btn-primary">@lang('admin/_globals.buttons.edit')</a>
+                                            <a href="{{ route('manage.edit',$user->id) }}" class="btn btn-primary">@lang('admin/_globals.buttons.edit')</a>
                                         </td>
                                     </tr>
                                 @endforeach

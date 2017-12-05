@@ -58,7 +58,7 @@
             <div class="content">
                 <img src="{{ asset('assets/admin/img/note-logo.png') }}" width="250">
                 <h4><strong>{{ config('note.name') }}</strong> 王雪-151250149 {{ config('note.laravel') }}</h4>
-                <a href="{{ route('admin.index') }}" class="btn">Enter</a>
+                <a href="{{ route('index') }}" class="btn">Enter</a>
             </div>
         </div>
     </body>

@@ -1,9 +1,9 @@
-@extends('admin.note.base')
+@extends('user.note.base')
 
 @section('title', trans('admin/note.categorys.index.title', ['total' => $categorys->total()]), @parent)
 
 @section('actions')
-	<a href="{{ route('admin.note.categorys.create') }}" class="btn dim btn-primary"><i class="fa fa-plus"></i> @lang('admin/_globals.buttons.create')</a>
+	<a href="{{ route('user.note.categorys.create') }}" class="btn dim btn-primary"><i class="fa fa-plus"></i> @lang('admin/_globals.buttons.create')</a>
 @endsection
 
 @section('note')
@@ -13,7 +13,7 @@
 	<div class="ibox">
         <div class="ibox-content">
             @if ($categorys->total() > 0)
-                <form action="{{ route('admin.note.categorys.destroy') }}" method="post">
+                <form action="{{ route('user.note.categorys.destroy') }}" method="post">
                     {{ csrf_field() }}
                     <div class="table-responsive">
                         <table class="table table-striped table-align-middle">
@@ -31,7 +31,7 @@
                                         <td>{{ $category->created_at->diffForHumans() }}</td>
                                         <td>{{ $category->title }}</td>
                                         <td class="text-right">
-                                            <a href="{{ route('admin.note.categorys.edit',$category->id) }}" class="btn btn-primary">@lang('admin/_globals.buttons.edit')</a>
+                                            <a href="{{ route('user.note.categorys.edit',$category->id) }}" class="btn btn-primary">@lang('admin/_globals.buttons.edit')</a>
                                         </td>
                                     </tr>
                                 @endforeach

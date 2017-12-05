@@ -59,7 +59,7 @@
                                 <i class="fa fa-comments"></i>
                             </div>
                         </li>
-                        <li><a href="{{ route('user.index') }}"><i class="fa fa-dashboard"></i> <span class="nav-label">@lang('admin/dashboard.module')</span></a></li>
+                        <li><a href="{{ route('index') }}"><i class="fa fa-dashboard"></i> <span class="nav-label">@lang('admin/dashboard.module')</span></a></li>
                         <li>
                             <a href="#"><i class="fa fa-file-text"></i> <span class="nav-label">@lang('admin/note.module')</span> <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -79,7 +79,7 @@
                             <a class="navbar-minimalize minimalize-styl-2 btn btn-default" href="#"><i class="fa fa-bars"></i> </a>
                         </div>
                         <ul class="nav navbar-top-links navbar-right">
-                            <li><span class="m-r-sm text-muted welcome-message">@lang('admin/_globals.hello') <strong><a href="{{ route('admin.profile.profile') }}" class="no-padding">
+                            <li><span class="m-r-sm text-muted welcome-message">@lang('admin/_globals.hello') <strong><a href="{{ route('user.profile.profile') }}" class="no-padding">
                                 {{ Auth::user()->name }}</a></strong></span>
                             <li><a href="{{ route('auth.logout') }}"><i class="fa fa-sign-out"></i> @lang('admin/_globals.exit')</a></li>
                         </ul>

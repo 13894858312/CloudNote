@@ -11,7 +11,7 @@
 
     <link href="{!! asset('assets/components/bootstrap/dist/css/bootstrap.min.css') !!}" rel="stylesheet">
     <link href="{!! asset('assets/components/font-awesome/css/font-awesome.min.css') !!}" rel="stylesheet">
-    
+
     <link href="{!! asset('assets/components/animate.css/animate.min.css') !!}" rel="stylesheet">
     <link href="{!! asset('assets/admin/css/app.css') !!}" rel="stylesheet">
 
@@ -26,8 +26,8 @@
         <div class="error-desc">
             @lang('error.404.description')
         </div>
-        <br>    
-        <a href="{{ route('admin.index') }}" class="btn btn-primary">@lang('error.404.link')</a>
+        <br>
+        <a href="{{ route('home') }}" class="btn btn-primary">@lang('error.404.link')</a>
     </div>
 
     <div class="footer">

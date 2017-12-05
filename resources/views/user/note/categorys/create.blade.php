@@ -1,9 +1,9 @@
-@extends('admin.note.base')
+@extends('user.note.base')
 
 @section('title',  trans('admin/note.categorys.create.title'), @parent)
 
 @section('actions')
-    <a href="{{ route('admin.note.categorys.index') }}" class="btn btn-default"><i class="fa fa-angle-left"></i> @lang('admin/_globals.buttons.back')</a>
+    <a href="{{ route('user.note.categorys.index') }}" class="btn btn-default"><i class="fa fa-angle-left"></i> @lang('admin/_globals.buttons.back')</a>
 @endsection
 
 @section('note')
@@ -16,7 +16,7 @@
             <li class="active"><a data-toggle="tab" href="#tab-contents"> @lang('admin/_globals.forms.nav.contents')</a></li>
         </ul>
 
-		<form action="{{ route('admin.note.categorys.store') }}" method="post">
+		<form action="{{ route('user.note.categorys.store') }}" method="post">
             <div class="tab-content">
                 <div id="tab-contents" class="tab-pane active">
                     <div class="panel-body">

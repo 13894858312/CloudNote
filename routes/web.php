@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\App;
-use App\Models\Admin\Pages\Contents;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +19,7 @@ use App\Models\Admin\Pages\Contents;
 
 Route::get('', function () {
     return view('base');
-});
+})->name('home');
 
 // ---------------------------------------------------------------------------------------------
 
@@ -41,27 +40,28 @@ Route::group(['as' => 'auth.'], function () {
 
 // ---------------------------------------------------------------------------------------------
 
+Route::get('index', 'Admin\Users\UsersController@testadmin')->name('index');
+
 // Note Admin
 
-Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::group(['middleware' => 'auth', 'prefix' => 'user', 'as' => 'user.'], function () {
 
-    // Dashboard
-    Route::get('/', ['as' => 'index', 'uses' => 'Admin\Users\UsersController@index']);
+    Route::get('index', 'User\DashboardController@index')->name('dashboard');
 
     // Mobule: BLOG
 
     Route::group(['prefix' => 'note', 'as' => 'note.'], function () {
 
         // Categorys
-        Route::resource('categorys', 'Admin\Note\CategorysController');
-        Route::post('categorys/update/{id}', 'Admin\Note\CategorysController@update')->name('categorys.update');
-        Route::post('categorys/destroy', 'Admin\Note\CategorysController@destroy')->name('categorys.destroy');
+        Route::resource('categorys', 'User\Note\CategorysController');
+        Route::post('categorys/update/{id}', 'User\Note\CategorysController@update')->name('categorys.update');
+        Route::post('categorys/destroy', 'User\Note\CategorysController@destroy')->name('categorys.destroy');
 
         // Posts
-        Route::resource('posts', 'Admin\Note\PostsController');
-        Route::post('posts/update/{id}', 'Admin\Note\PostsController@update')->name('posts.update');
-        Route::post('posts/destroy', 'Admin\Note\PostsController@destroy')->name('posts.destroy');
-        Route::any('posts/upload/{id?}', 'Admin\Note\PostsController@upload')->name('posts.upload');
+        Route::resource('posts', 'User\Note\PostsController');
+        Route::post('posts/update/{id}', 'User\Note\PostsController@update')->name('posts.update');
+        Route::post('posts/destroy', 'User\Note\PostsController@destroy')->name('posts.destroy');
+        Route::any('posts/upload/{id?}', 'User\Note\PostsController@upload')->name('posts.upload');
 
     });
 
@@ -74,24 +74,14 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
 
     // ---------------------------------------------------------------------------------------------
 
-    // Mobule: USERS
-
-    Route::resource('users', 'Admin\Users\UsersController');
-    Route::post('users/update/{id}', 'Admin\Users\UsersController@update')->name('users.update');
-    Route::post('users/destroy', 'Admin\Users\UsersController@destroy')->name('users.destroy');
 });
 
+    // Mobule: USERS
+
+Route::resource('manage', 'Admin\Users\UsersController');
+Route::post('manage/update/{id}', 'Admin\Users\UsersController@update')->name('manage.update');
+Route::post('manage/destroy', 'Admin\Users\UsersController@destroy')->name('manage.destroy');
+
 // ---------------------------------------------------------------------------------------------
-
-// Custom pages model
-
-Route::get('/{page}', ['as' => 'pages', function ($page) {
-    $page = Contents::where('slug', $page)->first();
-    if (isset($page)) {
-        return view('pages.template', ['page' => $page]);
-    }
-
-    App::abort(404);
-}]);
 
 // ---------------------------------------------------------------------------------------------
