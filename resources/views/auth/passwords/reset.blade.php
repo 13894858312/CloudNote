@@ -7,7 +7,7 @@
 
         <h3>@lang('auth.reset.title')</h3>
 
-        <form class="m-t" role="form" method="POST" action="{{ route('auth.update') }}">
+        <form class="m-t" role="form" method="POST" action="{{ route('auth.password.update') }}">
 
             {{ csrf_field() }}
 
