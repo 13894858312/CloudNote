@@ -63,25 +63,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
 
     });
 
-    // ---------------------------------------------------------------------------------------------
-
-    // Mobule: PAGES
-
-    Route::group(['prefix' => 'pages', 'as' => 'pages.'], function () {
-
-        // Categorys
-        Route::resource('categorys', 'Admin\Pages\CategorysController');
-        Route::post('categorys/update/{id}', 'Admin\Pages\CategorysController@update')->name('categorys.update');
-        Route::post('categorys/destroy', 'Admin\Pages\CategorysController@destroy')->name('categorys.destroy');
-
-        // Contents
-        Route::resource('contents', 'Admin\Pages\ContentsController');
-        Route::post('contents/update/{id}', 'Admin\Pages\ContentsController@update')->name('contents.update');
-        Route::post('contents/destroy', 'Admin\Pages\ContentsController@destroy')->name('contents.destroy');
-    });
-
-    // ---------------------------------------------------------------------------------------------
-
     // Mobule: PROFILE
 
     Route::group(['prefix' => 'profile', 'as' => 'profile.'], function () {

@@ -13,9 +13,9 @@ class CreateNoteCategoryTable extends Migration
     public function up()
     {
         Schema::create('note_category', function (Blueprint $table) {
+            $table->string('owner');
             $table->increments('id');
             $table->string('title', 120);
-            $table->integer('order')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

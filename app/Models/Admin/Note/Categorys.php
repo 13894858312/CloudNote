@@ -13,14 +13,13 @@ class Categorys extends Model
     protected $table = 'note_category';
 
     protected $fillable = [
+        'owner',
         'title',
-        'order',
     ];
 
     protected $sortable = [
         'id',
         'title',
-        'order',
         'created_at',
     ];
 }

@@ -2,6 +2,6 @@
 
 return [
 
-    'module' => '搜索',
+    'module' => '搜索笔记',
 
 ];

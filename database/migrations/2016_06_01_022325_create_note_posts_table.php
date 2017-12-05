@@ -13,6 +13,7 @@ class CreateNotePostsTable extends Migration
     public function up()
     {
         Schema::create('note_posts', function (Blueprint $table) {
+            $table->string('owner');
             $table->increments('id');
             $table->string('title', 170);
             $table->text('description');

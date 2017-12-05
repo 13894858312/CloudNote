@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('lang')->default('zh_cn');
             $table->rememberToken();
+            $table->integer('is_admin');
             $table->timestamps();
             $table->softDeletes();
         });

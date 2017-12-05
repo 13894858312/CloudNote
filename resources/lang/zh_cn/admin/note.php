@@ -2,7 +2,7 @@
 
 return [
 
-    'module' => '笔记',
+    'module' => '我的笔记',
 
     'submodule' => [
         'categorys' => '笔记本',
@@ -11,7 +11,7 @@ return [
 
     'categorys' => [
         'index' => [
-            'title' => '笔记本 (:total)',
+            'title' => '笔记本',
             'is_empty' => '您还没有笔记本',
         ],
 
@@ -45,7 +45,7 @@ return [
 
     'posts' => [
         'index' => [
-            'title' => '笔记 (:total)',
+            'title' => '笔记',
             'is_empty' => '您还没有笔记',
         ],
 

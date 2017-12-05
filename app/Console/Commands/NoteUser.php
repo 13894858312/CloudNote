@@ -44,6 +44,7 @@ class NoteUser extends Command
         $user->name = $name;
         $user->email = $email;
         $user->password = \Hash::make($password);
+        $user->is_admin = 1;
         $user->save();
 
         $this->info('The user create with success!');

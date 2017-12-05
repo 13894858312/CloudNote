@@ -15,12 +15,14 @@ class Posts extends Model
     protected $table = 'note_posts';
 
     protected $fillable = [
+        'owner',
         'category_id',
         'title',
         'description',
     ];
 
     protected $sortable = [
+        'owner',
         'id',
         'category_id',
         'title',
