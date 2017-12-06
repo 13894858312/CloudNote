@@ -30,7 +30,7 @@ class UsersController extends Controller
           if($user->is_admin == 1){
               return redirect()->route('manage.index');
           }else {
-              return redirect()->route('user.dashboard');
+              return redirect()->route('user.note.categorys.index');
           }
     }
 

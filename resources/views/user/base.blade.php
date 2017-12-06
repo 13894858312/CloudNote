@@ -59,7 +59,13 @@
                                 <i class="fa fa-comments"></i>
                             </div>
                         </li>
-                        <li><a href="{{ route('index') }}"><i class="fa fa-dashboard"></i> <span class="nav-label">@lang('admin/dashboard.module')</span></a></li>
+                        <li>
+                          <a href="#"><i class="fa fa-dashboard"></i> <span class="nav-label">@lang('admin/dashboard.module')</span></a>
+                          <ul class="nav nav-second-level">
+                              <li><a href="{{ route('user.categorysearch') }}">搜索笔记本</a></li>
+                              <li><a href="{{ route('user.notesearch') }}">搜索笔记</a></li>
+                          </ul>
+                        </li>
                         <li>
                             <a href="#"><i class="fa fa-file-text"></i> <span class="nav-label">@lang('admin/note.module')</span> <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

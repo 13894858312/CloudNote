@@ -46,10 +46,11 @@ Route::get('index', 'Admin\Users\UsersController@testadmin')->name('index');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'user', 'as' => 'user.'], function () {
 
-    Route::get('index', 'User\DashboardController@index')->name('dashboard');
-    Route::post('result', 'User\DashboardController@search')->name('search');
-
-    // Mobule: BLOG
+    Route::get('categorysearch', 'User\DashboardController@category')->name('categorysearch');
+    Route::get('notesearch', 'User\DashboardController@note')->name('notesearch');
+    Route::get('categoryresult', 'User\DashboardController@searchCategory')->name('search.category');
+    Route::get('noteresult', 'User\DashboardController@searchNote')->name('search.note');
+    // Mobule: Note
 
     Route::group(['prefix' => 'note', 'as' => 'note.'], function () {
 
