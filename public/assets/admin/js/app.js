@@ -323,7 +323,7 @@ $(document).ready(function () {
     // Editor summer note
     $('.summernote').summernote({
         height: 270,
-        lang: 'pt-BR'
+        lang: 'zh_CN'
     });
 
     // --------------------------------------------------------------------------------------

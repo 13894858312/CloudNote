@@ -101,7 +101,7 @@ class PostsController extends Controller
     public function edit($id)
     {
         $name = \Auth::user()->name;
-        $categorys = $this->categorys->where('owner',$name);
+        $categorys = $this->categorys->all()->where('owner',$name);
         $post = $this->posts->find($id);
 
         return view('user.note.posts.edit', ['categorys' => $categorys, 'post' => $post]);

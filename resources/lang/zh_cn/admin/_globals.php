@@ -53,7 +53,7 @@ return [
         ],
         'title' => '标题',
         'category' => '笔记本',
-        'content' => 'Contenido',
+        'content' => '内容',
         'description' => '描述',
         'keywords' => '关键字',
         'name' => '用户名',

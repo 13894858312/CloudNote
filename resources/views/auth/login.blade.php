@@ -32,10 +32,10 @@
                 @endif
             </div>
 
-            <button type="submit" class="btn btn-primary block full-width m-b">@lang('auth.login.form.button')</button>
+            <button type="submit" class="btn btn-primary block full-width m-b">登录</button>
             <div>
               <a href="{{ route('auth.password.forgot') }}"><small>@lang('auth.login.forgot')</small></a>
-            
+
               <a href="{{ route('auth.signup') }}"><small>注册账号</small></a>
             </div>
         </form>

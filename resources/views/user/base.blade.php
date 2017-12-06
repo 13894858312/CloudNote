@@ -89,7 +89,6 @@
                 <!-- Content -->
                 <div class="row">
                     <div class="col-lg-12">
-                        @yield('sidebar')
                         <div class="wrapper wrapper-content">
                             @include('admin._inc.alerts')
                             @yield('content')
@@ -119,9 +118,6 @@
             <script type="text/javascript" src="{!! asset('assets/components/slimScroll/jquery.slimscroll.min.js') !!}"></script>
             <script type="text/javascript" src="{!! asset('assets/components/metisMenu/dist/metisMenu.min.js') !!}"></script>
 
-            <!-- ChartJS-->
-            <!-- <script type="text/javascript" src="{!! asset('assets/components/Chart.js/dist/Chart.min.js') !!}"></script> -->
-
             <!-- Summernote (Editor) -->
             <script type="text/javascript" src="{!! asset('assets/components/summernote/dist/summernote.min.js') !!}"></script>
             <script type="text/javascript" src="{!! asset('assets/components/summernote/dist/lang/summernote-pt-BR.min.js') !!}"></script>
@@ -135,6 +131,32 @@
             <!-- Switchery -->
             <script type="text/javascript" src="{!! asset('assets/components/switchery/dist/switchery.min.js') !!}"></script>
 
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+            <script type="text/javascript" src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>
+            <script type="text/javascript">
+              function getPDF(){
+                html2canvas( document.getElementById('content'), {
+                    onrendered: function(canvas) {
+                        var imgData = canvas.toDataURL('image/jpeg');
+                        var doc = new jsPDF("p", "mm", "a4");
+                        doc.addImage(imgData, 'JPEG', 0, 0,210,297);
+                        doc.save('note.pdf');
+                    }
+                });
+              }
+            </script>
+            <script type="text/javascript">
+                function takeScreenshot() {
+                  html2canvas(document.getElementById('content'), {
+                    onrendered: function(canvas) {
+                        var url = canvas.toDataURL();
+                        var triggerDownload = $("<a>").attr("href", url).attr("download", "note.png").appendTo("body");
+                        triggerDownload[0].click();
+                        triggerDownload.remove();
+                    },
+                  });
+                }
+            </script>
         @show
 
     </body>

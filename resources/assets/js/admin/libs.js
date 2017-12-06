@@ -15,9 +15,9 @@ $(document).ready(function () {
     // Editor summer note
     $('.summernote').summernote({
         height: 270,
-        lang: 'pt-BR'
+        lang: 'zh_CN'
     });
-    
+
     // --------------------------------------------------------------------------------------
 
     // MetsiMenu
@@ -52,7 +52,7 @@ $(document).ready(function () {
     $('.datetimepicker').datetimepicker({
         step: 10
     });
-    
+
     // --------------------------------------------------------------------------------------
 
     // Open close right sidebar
@@ -303,4 +303,3 @@ function WinMove() {
 }
 
 // --------------------------------------------------------------------------------------
-
