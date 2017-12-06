@@ -66,6 +66,7 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'owner' => 'required',
             'category_id' => 'required|integer',
             'title' => 'required',
             'description' => 'required',
@@ -82,7 +83,7 @@ class PostsController extends Controller
             \Storage::disk('uploads')->move($path_from, $path_to);
         }
 
-        \Session::flash('success', trans('user/note.posts.store.messages.success'));
+        \Session::flash('success', trans('admin/note.posts.store.messages.success'));
 
         return redirect()->route('user.note.posts.index')->withInput();
     }
@@ -123,7 +124,7 @@ class PostsController extends Controller
         $postDetails = $request->all();
         $post->update($postDetails);
 
-        \Session::flash('success', trans('user/note.posts.update.messages.success'));
+        \Session::flash('success', trans('admin/note.posts.update.messages.success'));
 
         return redirect()->route('user.note.posts.index')->withInput();
     }
@@ -136,13 +137,13 @@ class PostsController extends Controller
     public function destroy(Request $request)
     {
         if (is_null($request->posts)) {
-            \Session::flash('info', trans('user/note.posts.destroy.messages.info'));
+            \Session::flash('info', trans('admin/note.posts.destroy.messages.info'));
 
             return redirect()->route('user.note.posts.index');
         }
 
         $this->posts->destroy($request->posts);
-        \Session::flash('success', trans('user/note.posts.destroy.messages.success'));
+        \Session::flash('success', trans('admin/note.posts.destroy.messages.success'));
 
         // Precisamos remover as imagens desse ID também
         // tem que ser um foreach porque é um array de galerias

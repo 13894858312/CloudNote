@@ -38,7 +38,7 @@ return [
         'title' => '忘记密码',
         'form' => [
             'email' => '电子邮箱',
-            'button' => '发送新密码',
+            'button' => '发送邮件',
         ],
         'back' => '返回',
     ],

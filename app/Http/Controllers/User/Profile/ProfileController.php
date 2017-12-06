@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Profile;
+namespace App\Http\Controllers\User\Profile;
 
 use App\User;
 use Illuminate\Http\Request;
@@ -15,11 +15,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        if(\Auth::user()->is_admin == 1){
-          return view('admin.profile.profile', ['user' => \Auth::user()]);
-        }else{
-          return view('user.profile.profile', ['user' => \Auth::user()]);
-        }
+        return view('user.profile.profile', ['user' => \Auth::user()]);
     }
 
     /**
@@ -42,7 +38,7 @@ class ProfileController extends Controller
         if ($request->password != $request->confirm_password) {
             \Session::flash('success', trans('admin/profile.profile.password.messages.error'));
 
-            return redirect()->route('admin.profile.profile');
+            return redirect()->route('user.profile.profile');
         }
 
         $user = \Auth::user();
@@ -57,6 +53,6 @@ class ProfileController extends Controller
         $user->save();
         \Session::flash('success', trans('admin/profile.profile.password.messages.success'));
 
-        return redirect()->route('admin.profile.profile');
+        return redirect()->route('user.profile.profile');
     }
 }

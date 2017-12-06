@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User\Note;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Note\Categorys;
@@ -54,13 +55,14 @@ class CategorysController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'owner' => 'required',
             'title' => 'required',
         ]);
 
         $categoryDetails = $request->all();
         $this->categorys->create($categoryDetails);
 
-        \Session::flash('success', trans('user/note.categorys.store.messages.success'));
+        \Session::flash('success', trans('admin/note.categorys.store.messages.success'));
 
         return redirect()->route('user.note.categorys.index')->withInput();
     }
@@ -98,7 +100,7 @@ class CategorysController extends Controller
         $categoryDetails = $request->all();
         $category->update($categoryDetails);
 
-        \Session::flash('success', trans('user/note.categorys.update.messages.success'));
+        \Session::flash('success', trans('admin/note.categorys.update.messages.success'));
 
         return redirect()->route('user.note.categorys.index')->withInput();
     }
@@ -111,13 +113,13 @@ class CategorysController extends Controller
     public function destroy(Request $request)
     {
         if (is_null($request->categorys)) {
-            \Session::flash('info', trans('user/note.categorys.destroy.messages.info'));
+            \Session::flash('info', trans('admin/note.categorys.destroy.messages.info'));
 
             return redirect()->route('user.note.categorys.index');
         }
 
         $this->categorys->destroy($request->categorys);
-        \Session::flash('success', trans('user/note.categorys.destroy.messages.success'));
+        \Session::flash('success', trans('admin/note.categorys.destroy.messages.success'));
 
         return redirect()->route('user.note.categorys.index');
     }

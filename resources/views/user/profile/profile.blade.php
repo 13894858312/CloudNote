@@ -1,4 +1,4 @@
-@extends('admin.profile.index')
+@extends('user.profile.index')
 
 @section('title', trans('admin/profile.module') , @parent )
 
@@ -17,7 +17,7 @@
 
         <div class="col-md-6">
 
-            <form action="{{ route('admin.profile.update') }}" method="post" class="ibox-content">
+            <form action="{{ route('user.profile.update') }}" method="post" class="ibox-content">
 
                 <h3>@lang('admin/profile.profile.password.title')</h3>
 

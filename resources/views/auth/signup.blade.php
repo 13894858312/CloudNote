@@ -51,8 +51,8 @@
             </div>
 
             <button type="submit" class="btn btn-primary block full-width m-b">@lang('auth.login.form.signup_button')</button>
+            <a href="{{ route('auth.login') }}"><small>返回</small></a>
         </form>
-
         <br>
 
     </div>

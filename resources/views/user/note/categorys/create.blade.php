@@ -24,6 +24,9 @@
                         <fieldset class="form-horizontal">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">@lang('admin/_globals.forms.category'):</label>
+                                <div>
+                                  <input type="hidden" name="owner" value="{{Auth::user()->name}}" />
+                                </div>
                                 <div class="col-sm-10"><input type="text" name="title" class="form-control" value="{{ old('title') }}"></div>
                             </div>
                             <div class="form-group">

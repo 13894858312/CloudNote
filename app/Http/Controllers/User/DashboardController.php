@@ -13,7 +13,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-
         return view('user.dashboard.index');
+    }
+
+    public function search(){
+      return view('user.dashboard.index');
     }
 }

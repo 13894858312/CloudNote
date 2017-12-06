@@ -42,11 +42,12 @@ Route::group(['as' => 'auth.'], function () {
 
 Route::get('index', 'Admin\Users\UsersController@testadmin')->name('index');
 
-// Note Admin
+// Note User
 
 Route::group(['middleware' => 'auth', 'prefix' => 'user', 'as' => 'user.'], function () {
 
     Route::get('index', 'User\DashboardController@index')->name('dashboard');
+    Route::post('result', 'User\DashboardController@search')->name('search');
 
     // Mobule: BLOG
 
@@ -64,6 +65,19 @@ Route::group(['middleware' => 'auth', 'prefix' => 'user', 'as' => 'user.'], func
         Route::any('posts/upload/{id?}', 'User\Note\PostsController@upload')->name('posts.upload');
 
     });
+
+    // Mobule: PROFILE
+
+    Route::group(['prefix' => 'profile', 'as' => 'profile.'], function () {
+        Route::get('', ['as' => 'profile', 'uses' => 'User\Profile\ProfileController@index']);
+        Route::post('update', ['as' => 'update', 'uses' => 'User\Profile\ProfileController@password']);
+    });
+
+    // ---------------------------------------------------------------------------------------------
+
+});
+
+Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function () {
 
     // Mobule: PROFILE
 

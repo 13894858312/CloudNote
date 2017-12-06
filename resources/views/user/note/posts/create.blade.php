@@ -35,6 +35,9 @@
                         {{ csrf_field() }}
                         <fieldset class="form-horizontal">
                             <div class="form-group">
+                                <div>
+                                  <input type="hidden" name="owner" value="{{Auth::user()->name}}" />
+                                </div>
                                 <label class="col-sm-2 control-label">@lang('admin/_globals.forms.category'):</label>
                                 <div class="col-sm-10">
                                     @if($categorys->count() > 0)

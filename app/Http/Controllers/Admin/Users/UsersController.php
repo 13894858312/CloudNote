@@ -24,6 +24,9 @@ class UsersController extends Controller
     public function testadmin(Request $request)
     {
           $user = $request->user();
+          if(is_null($user)){
+            return redirect()->route('auth.login');
+          }
           if($user->is_admin == 1){
               return redirect()->route('manage.index');
           }else {
@@ -75,7 +78,7 @@ class UsersController extends Controller
 
         \Session::flash('success', trans('admin/users.store.messages.success'));
 
-        return redirect()->route('admin.users.index')->withInput();
+        return redirect()->route('manage.index')->withInput();
     }
 
     /**
@@ -119,7 +122,7 @@ class UsersController extends Controller
 
         \Session::flash('success', trans('admin/users.update.messages.success'));
 
-        return redirect()->route('admin.users.index')->withInput();
+        return redirect()->route('manage.index')->withInput();
     }
 
     /**
@@ -132,7 +135,7 @@ class UsersController extends Controller
         if (is_null($request['users'])) {
             \Session::flash('info', trans('admin/users.destroy.messages.info'));
 
-            return redirect()->route('admin.users.index');
+            return redirect()->route('manage.index');
         }
 
         $user = $request->user();
@@ -140,12 +143,12 @@ class UsersController extends Controller
         if (in_array($user->id, $request['users'])) {
             \Session::flash('warning', trans('admin/users.destroy.messages.warning'));
 
-            return redirect()->route('admin.users.index');
+            return redirect()->route('manage.index');
         }
 
         $this->users->destroy($request['users']);
         \Session::flash('success', trans('admin/users.destroy.messages.success'));
 
-        return redirect()->route('admin.users.index');
+        return redirect()->route('manage.index');
     }
 }
