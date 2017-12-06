@@ -32,8 +32,11 @@
                                         <td>{{ $post->created_at->diffForHumans() }}</td>
                                         <td>{{ $post->category->title }}</td>
                                         <td>{{ $post->title }}</td>
-                                        <td class="text-right">
-                                            <a href="{{ route('user.note.posts.edit',$post->id) }}" class="btn btn-primary">查看</a>
+                                        <td>
+                                            <a href="{{ route('user.note.posts.edit',$post->id) }}" class="btn btn-primary">编辑</a>
+                                        </td>
+																				<td>
+                                            <a href="{{ route('user.note.posts.detail',$post->id) }}" class="btn btn-primary">查看</a>
                                         </td>
                                     </tr>
                                 @endforeach

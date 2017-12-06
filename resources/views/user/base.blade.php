@@ -135,7 +135,7 @@
             <script type="text/javascript" src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>
             <script type="text/javascript">
               function getPDF(){
-                html2canvas( document.getElementById('content'), {
+                html2canvas( document.getElementById('note-content'), {
                     onrendered: function(canvas) {
                         var imgData = canvas.toDataURL('image/jpeg');
                         var doc = new jsPDF("p", "mm", "a4");
@@ -147,7 +147,7 @@
             </script>
             <script type="text/javascript">
                 function takeScreenshot() {
-                  html2canvas(document.getElementById('content'), {
+                  html2canvas(document.getElementById('note-content'), {
                     onrendered: function(canvas) {
                         var url = canvas.toDataURL();
                         var triggerDownload = $("<a>").attr("href", url).attr("download", "note.png").appendTo("body");

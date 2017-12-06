@@ -60,6 +60,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'user', 'as' => 'user.'], func
 
         // Posts
         Route::resource('posts', 'User\Note\PostsController');
+        Route::get('posts/detail/{id}', 'User\Note\PostsController@detail')->name('posts.detail');
         Route::post('posts/update/{id}', 'User\Note\PostsController@update')->name('posts.update');
         Route::post('posts/destroy', 'User\Note\PostsController@destroy')->name('posts.destroy');
         Route::any('posts/upload/{id?}', 'User\Note\PostsController@upload')->name('posts.upload');

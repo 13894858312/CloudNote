@@ -22,22 +22,12 @@ class PostsController extends Controller
 
     protected $categorys;
 
-    /**
-     * PostsController constructor.
-     * @param Posts $posts
-     * @param Categorys $categorys
-     */
     public function __construct(Posts $posts, Categorys $categorys)
     {
         $this->posts = $posts;
         $this->categorys = $categorys;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $name = \Auth::user()->name;
@@ -46,11 +36,6 @@ class PostsController extends Controller
         return view('user.note.posts.index', ['posts' => $posts]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $name = \Auth::user()->name;
@@ -59,13 +44,6 @@ class PostsController extends Controller
         return view('user.note.posts.create', ['categorys' => $categorys]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -91,13 +69,6 @@ class PostsController extends Controller
         return redirect()->route('user.note.posts.index')->withInput();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $name = \Auth::user()->name;
@@ -107,14 +78,12 @@ class PostsController extends Controller
         return view('user.note.posts.edit', ['categorys' => $categorys, 'post' => $post]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int                      $id
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function detail($id)
+    {
+      $post = $this->posts->find($id);
+      return view('user.note.posts.detail', ['post' => $post] );
+    }
+
     public function update(Request $request)
     {
         $this->validate($request, [
@@ -133,11 +102,6 @@ class PostsController extends Controller
         return redirect()->route('user.note.posts.index')->withInput();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Request $request)
     {
         if (is_null($request->posts)) {
@@ -149,13 +113,9 @@ class PostsController extends Controller
         $this->posts->destroy($request->posts);
         \Session::flash('success', trans('admin/note.posts.destroy.messages.success'));
 
-        // Precisamos remover as imagens desse ID também
-        // tem que ser um foreach porque é um array de galerias
         foreach ($request->posts as $id) {
-            // Checamos se o diretório existe
             $path = self::UPLOAD_PATH.$id;
 
-            // Deletamos o diretório da imagem
             if (\Storage::disk('uploads')->exists($path)) {
                 \Storage::disk('uploads')->deleteDirectory($path);
             }
@@ -164,13 +124,6 @@ class PostsController extends Controller
         return redirect()->route('user.note.posts.index');
     }
 
-    /**
-     * Faz o envio ou carrrega as imagens de um diretório.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function upload(Request $request, $id = null)
     {
         new Upload(

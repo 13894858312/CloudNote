@@ -14,7 +14,6 @@
 
 @section('actions')
     <button class="btn btn-default" onclick="takeScreenshot()">截图</button>
-    <button class="btn btn-default" onclick="getPDF()">导出pdf</button>
     <a href="{{ route('user.note.posts.index') }}" class="btn btn-default"><i class="fa fa-angle-left"></i> @lang('admin/_globals.buttons.back')</a>
 @endsection
 
@@ -52,7 +51,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">@lang('admin/_globals.forms.content'):</label>
-                                <div id="content" class="col-sm-10">
+                                <div id="note-content" class="col-sm-10">
                                     <textarea id="summernote" name="description" class="form-control summernote">{{ $post->description }}</textarea>
                                 </div>
                             </div>
