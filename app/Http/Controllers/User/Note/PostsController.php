@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User\Note;
 
+use App\User;
 use Carbon\Carbon;
 use App\Libraries\Upload;
 use Illuminate\Http\Request;
@@ -39,7 +40,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = $this->posts->sortable(['created_at' => 'desc'])->whereHas('category')->paginate(10);
+        $name = \Auth::user()->name;
+        $posts = $this->posts->where('owner',$name)->sortable(['created_at' => 'desc'])->whereHas('category')->paginate(10);
 
         return view('user.note.posts.index', ['posts' => $posts]);
     }
@@ -51,7 +53,8 @@ class PostsController extends Controller
      */
     public function create()
     {
-        $categorys = $this->categorys->all();
+        $name = \Auth::user()->name;
+        $categorys = $this->categorys->all()->where('owner',$name);
 
         return view('user.note.posts.create', ['categorys' => $categorys]);
     }
@@ -97,7 +100,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        $categorys = $this->categorys->all();
+        $name = \Auth::user()->name;
+        $categorys = $this->categorys->where('owner',$name);
         $post = $this->posts->find($id);
 
         return view('user.note.posts.edit', ['categorys' => $categorys, 'post' => $post]);

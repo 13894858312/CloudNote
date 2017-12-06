@@ -30,7 +30,8 @@ class CategorysController extends Controller
      */
     public function index()
     {
-        $categorys = $this->categorys->sortable(['created_at' => 'desc'])->paginate(10);
+        $name = \Auth::user()->name;
+        $categorys = $this->categorys->where('owner',$name)->sortable(['created_at' => 'desc'])->paginate(10);
 
         return view('user.note.categorys.index', ['categorys' => $categorys]);
     }

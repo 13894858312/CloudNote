@@ -33,7 +33,7 @@
                                         <td>{{ $post->category->title }}</td>
                                         <td>{{ $post->title }}</td>
                                         <td class="text-right">
-                                            <a href="{{ route('user.note.posts.edit',$post->id) }}" class="btn btn-primary">@lang('admin/_globals.buttons.edit')</a>
+                                            <a href="{{ route('user.note.posts.edit',$post->id) }}" class="btn btn-primary">查看</a>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -21,7 +21,6 @@ class Posts extends Model
     ];
 
     protected $sortable = [
-        'owner',
         'id',
         'category_id',
         'title',
