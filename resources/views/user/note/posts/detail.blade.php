@@ -1,5 +1,7 @@
 @extends('user.base')
 
+@section('title',  '笔记内容'), @parent)
+
 @section('content')
 
     <div class="page-heading">

@@ -4,6 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content="WangXue"/>
+        <meta name="keywords" content="php,code,laravel,laravel5,云笔记,在线笔记,笔记,cms"/>
+        <meta name="description" content="Cloudnote是一个在线云笔记平台，由laravel框架编写"/>
 
         <title>@yield('title') | {{ config('note.name') }}</title>
 
@@ -54,9 +57,6 @@
                         <li class="nav-header text-center">
                             <div class="profile-element">
                                 <img src="{{ asset('assets/admin/img/note.png') }}">
-                            </div>
-                            <div class="logo-element">
-                                <i class="fa fa-comments"></i>
                             </div>
                         </li>
                         <li>
@@ -153,6 +153,27 @@
             </script>
             <script type="text/javascript">
                 function takeScreenshot() {
+                  //
+                  // var dom=$(".note_content"); //你要转变的dom
+                  // var width = dom.width();
+                  // var height = dom.height();
+                  // var type = "png";
+                  // var scaleBy = 8;  //缩放比例
+                  // var canvas = document.createElement('canvas');
+                  // canvas.width = width * scaleBy;
+                  // canvas.height = height * scaleBy+35;  //35是我处理完后发现短了一点，具体为什么不清楚,如果你也少的话，根据自己的项目调吧
+                  // canvas.style.width = width * scaleBy + 'px';
+                  // canvas.style.height = height * scaleBy + 'px';
+                  // var context = canvas.getContext('2d');
+                  // context.scale(scaleBy, scaleBy);
+                  //   html2canvas(document.getElementById('note-content'), {
+                  //   canvas:canvas,
+                  //   onrendered: function (canvas) {
+                  //     var url = canvas.toDataURL();
+                  //     var triggerDownload = $("<a>").attr("href", url).attr("download", "note.png").appendTo("body");
+                  //     triggerDownload[0].click();
+                  //     triggerDownload.remove();
+                  //   }
                   html2canvas(document.getElementById('note-content'), {
                     onrendered: function(canvas) {
                         var url = canvas.toDataURL();

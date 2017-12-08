@@ -58,6 +58,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'user', 'as' => 'user.'], func
         Route::resource('categorys', 'User\Note\CategorysController');
         Route::post('categorys/update/{id}', 'User\Note\CategorysController@update')->name('categorys.update');
         Route::post('categorys/destroy', 'User\Note\CategorysController@destroy')->name('categorys.destroy');
+        Route::get('categorys/list/{id}','User\Note\CategorysController@list')->name('categorys.list');
 
         // Posts
         Route::resource('posts', 'User\Note\PostsController');
@@ -93,11 +94,13 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
 });
 
     // Mobule: USERS
-
-Route::resource('manage', 'Admin\Users\UsersController');
+Route::get('manage/create','Admin\Users\UsersController@create')->name('manage.create');
+Route::post('manage/store','Admin\Users\UsersController@store')->name('manage.store');
+Route::get('manage/edit/{id}','Admin\Users\UsersController@edit')->name('manage.edit');
 Route::post('manage/update/{id}', 'Admin\Users\UsersController@update')->name('manage.update');
 Route::post('manage/destroy', 'Admin\Users\UsersController@destroy')->name('manage.destroy');
-
-// ---------------------------------------------------------------------------------------------
-
+Route::get('manage/result', 'Admin\Users\UsersController@searchUser')->name('manage.result');
+Route::get('manage/search', 'Admin\Users\UsersController@showSearch')->name('manage.search');
+Route::get('manage', 'Admin\Users\UsersController@index')->name('manage.index');
+// -------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------

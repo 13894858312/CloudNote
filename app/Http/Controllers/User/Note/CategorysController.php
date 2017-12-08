@@ -4,8 +4,10 @@ namespace App\Http\Controllers\User\Note;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Note\Categorys;
+use App\Models\Admin\Note\Posts;
 
 class CategorysController extends Controller
 {
@@ -13,10 +15,12 @@ class CategorysController extends Controller
      * @var Categorys
      */
     protected $categorys;
+    protected $posts;
 
-    public function __construct(Categorys $categorys)
+    public function __construct(Categorys $categorys, Posts $posts)
     {
         $this->categorys = $categorys;
+        $this->posts = $posts;
     }
 
     public function index()
@@ -82,5 +86,11 @@ class CategorysController extends Controller
         \Session::flash('success', trans('admin/note.categorys.destroy.messages.success'));
 
         return redirect()->route('user.note.categorys.index');
+    }
+
+    public function list($id){
+        $user = \Auth::user()->name;
+        $posts = $this->posts->where('owner', $user)->where('category_id',$id)->sortable(['created_at' => 'desc'])->paginate(10);
+        return view('user.note.posts.index', ['posts' => $posts]);
     }
 }

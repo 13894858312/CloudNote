@@ -4,12 +4,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content="WangXue"/>
+        <meta name="keywords" content="php,code,laravel,laravel5,云笔记,在线笔记,笔记,cms"/>
+        <meta name="description" content="Cloudnote是一个在线云笔记平台，由laravel框架编写"/>
 
         <title>{{ config('note.name') }}</title>
 
         <link href="{!! asset('assets/components/bootstrap/dist/css/bootstrap.min.css') !!}" rel="stylesheet">
         <link href="{!! asset('assets/components/font-awesome/css/font-awesome.min.css') !!}" rel="stylesheet">
-        
+
         <link href="{!! asset('assets/components/animate.css/animate.min.css') !!}" rel="stylesheet">
         <link href="{!! asset('assets/admin/css/app.css') !!}" rel="stylesheet">
 
@@ -30,7 +33,7 @@
         @yield('content')
 
         <hr>
-        
+
         <p class="m-t text-center"> <small>{{ config('note.name') }} {{ date('Y') }}</small> </p>
 
         <!-- Mainly scripts -->

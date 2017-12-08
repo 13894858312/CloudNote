@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin\Users;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+
 class UsersController extends Controller
 {
     /**
@@ -54,6 +56,11 @@ class UsersController extends Controller
     public function create()
     {
         return view('admin.users.create');
+    }
+
+
+    public function showSearch(){
+        return view('admin.users.search');
     }
 
     /**
@@ -151,4 +158,11 @@ class UsersController extends Controller
 
         return redirect()->route('manage.index');
     }
+
+    public function searchUser(Request $request){
+       $condition = $request->condition;
+       $users = $this->users->where('email','like','%'.$condition.'%')->orWhere('name','like','%'.$condition.'%')->sortable(['created_at' => 'desc'])->paginate(10);
+       return view('admin.users.result', ['users' => $users]);
+    }
+
 }

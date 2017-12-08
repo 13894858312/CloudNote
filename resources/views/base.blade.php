@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel</title>
+      <meta charset="utf-8"/>
+      <meta name="author" content="WangXue"/>
+      <meta name="keywords" content="php,code,laravel,laravel5,云笔记,在线笔记,笔记,cms"/>
+      <meta name="description" content="Cloudnote是一个在线云笔记平台，由laravel框架编写"/>
+
+      <title>Cloudnote</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:300,700" rel="stylesheet" type="text/css">
 

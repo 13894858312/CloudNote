@@ -19,8 +19,11 @@
                                   <tr>
                                       <td>{{ $category->created_at->diffForHumans() }}</td>
                                       <td>{{ $category->title }}</td>
-                                      <td class="text-right">
+                                      <td>
                                           <a href="{{ route('user.note.categorys.edit',$category->id) }}" class="btn btn-primary">@lang('admin/_globals.buttons.edit')</a>
+                                      </td>
+                                      <td>
+                                          <a href="{{ route('user.note.categorys.list',$category->id) }}" class="btn btn-primary">查看</a>
                                       </td>
                                   </tr>
                               @endforeach

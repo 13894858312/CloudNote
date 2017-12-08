@@ -4,6 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content="WangXue"/>
+        <meta name="keywords" content="php,code,laravel,laravel5,云笔记,在线笔记,笔记,cms"/>
+        <meta name="description" content="Cloudnote是一个在线云笔记平台，由laravel框架编写"/>
 
         <title>@yield('title') | {{ config('note.name') }}</title>
 
@@ -56,6 +59,7 @@
                                 <i class="fa fa-comments"></i>
                             </div>
                         </li>
+                        <li><a href="{{ route('manage.search') }}"><i class="fa fa-dashboard"></i> <span class="nav-label">搜索用户</span></a></li>
                         <li><a href="{{ route('manage.index') }}"><i class="fa fa-users"></i> <span class="nav-label">@lang('admin/users.module')</span></a></li>
                     </ul>
                 </div>
